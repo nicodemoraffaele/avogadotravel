@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { sveltePreprocess } from 'svelte-preprocess';
 
@@ -14,7 +14,12 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter(),
+		// Sito statico per GitHub Pages. BASE_PATH = '/avogadotravel' quando il sito è
+		// servito da nicodemoraffaele.github.io/avogadotravel; vuoto in locale o con dominio proprio.
+		adapter: adapter({ fallback: '404.html' }),
+		paths: {
+			base: process.env.BASE_PATH ?? '',
+		},
 		alias: {
 			$lib: './src/lib',
 			$components: './src/components',

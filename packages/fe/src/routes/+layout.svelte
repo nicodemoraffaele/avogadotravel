@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { setLocale } from '$lib/i18n/i18n-svelte';
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 	import type { Snippet } from 'svelte';
 	import '../app.postcss';
 	import type { LayoutData } from './$types';
@@ -25,7 +26,7 @@
 	const showMenu = navLinks.length > 1;
 
 	function isActive(href: string): boolean {
-		return $page.url.pathname === href;
+		return $page.url.pathname === base + href || $page.url.pathname === `${base}${href}/`;
 	}
 
 	// Initialize Lenis smooth scrolling
@@ -58,7 +59,7 @@
 	<div class="container mx-auto px-4">
 		<div class="flex items-center {showMenu ? 'justify-between' : 'justify-center'} h-16">
 			<!-- Logo / Monogram -->
-			<a href="/" class="font-display text-3xl text-gold hover:text-gold-dark transition-colors">
+			<a href="{base}/" class="font-display text-3xl text-gold hover:text-gold-dark transition-colors">
 				L & E
 			</a>
 
@@ -67,7 +68,7 @@
 			<div class="hidden md:flex items-center space-x-8">
 				{#each navLinks as link}
 					<a
-						href={link.href}
+						href={base + link.href}
 						class="font-sans text-sm font-medium transition-colors {isActive(link.href)
 							? 'text-gold'
 							: 'text-charcoal hover:text-gold'}"
@@ -111,7 +112,7 @@
 			<div class="container mx-auto px-4 py-4 space-y-3">
 				{#each navLinks as link}
 					<a
-						href={link.href}
+						href={base + link.href}
 						class="block font-sans text-base font-medium transition-colors {isActive(link.href)
 							? 'text-gold'
 							: 'text-charcoal hover:text-gold'}"

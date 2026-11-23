@@ -1,18 +1,31 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { PageData } from './$types';
-
-	let { data }: { data: PageData } = $props();
+	import { base } from '$app/paths';
 
 	// 22 maggio 2027 ore 16:00, ora italiana. A maggio in Italia vale l'ora legale
 	// (CEST, UTC+2): l'offset esplicito rende il conteggio indipendente dal fuso
 	// orario del dispositivo e del server.
 	const WEDDING_TIME = Date.parse('2027-05-22T16:00:00+02:00');
 
-	// Differenza tra l'orologio del server e quello del dispositivo, calcolata una
-	// volta all'apertura della pagina: il countdown segue l'ora del server.
-	const clockOffset = data.serverNow - Date.now();
+	// Differenza tra l'orologio del server e quello del dispositivo. Il sito è
+	// statico (GitHub Pages), quindi l'ora del server si legge dall'intestazione
+	// HTTP "Date" della risposta; se non è disponibile si usa l'orologio locale.
+	let clockOffset = 0;
 	const now = () => Date.now() + clockOffset;
+
+	async function syncWithServerClock() {
+		try {
+			const sentAt = Date.now();
+			const res = await fetch(`${base}/`, { method: 'HEAD', cache: 'no-store' });
+			const receivedAt = Date.now();
+			const serverDate = Date.parse(res.headers.get('date') ?? '');
+			if (Number.isNaN(serverDate)) return;
+			// "Date" ha la precisione del secondo: +500ms ne stima il valore medio.
+			clockOffset = serverDate + 500 - (sentAt + receivedAt) / 2;
+		} catch {
+			// rete non disponibile: resta l'orologio del dispositivo
+		}
+	}
 
 	const SECOND = 1000;
 	const MINUTE = 60 * SECOND;
@@ -31,6 +44,9 @@
 	}
 
 	let countdown = $state(remaining());
+	// Il countdown dell'HTML statico è quello del momento del build: i numeri
+	// compaiono solo quando la pagina è attiva nel browser.
+	let ready = $state(false);
 
 	type ProgramIcon = 'arrival' | 'rings' | 'cheers' | 'dinner' | 'party';
 
@@ -43,8 +59,11 @@
 	];
 
 	onMount(() => {
-		countdown = remaining();
-		const interval = setInterval(() => (countdown = remaining()), 1000);
+		const tick = () => (countdown = remaining());
+		tick();
+		ready = true;
+		syncWithServerClock().then(tick);
+		const interval = setInterval(tick, 1000);
 		return () => clearInterval(interval);
 	});
 </script>
@@ -121,7 +140,7 @@
 				<div class="relative aspect-[4/3] w-full overflow-hidden rounded-t-full">
 					<!-- inquadra solo la tela con la luna (l'immagine originale include la stanza) -->
 					<img
-						src="/images/immagine_home.jpg"
+						src="{base}/images/immagine_home.jpg"
 						alt="Due persone sedute su un furgoncino sotto una grande luna piena"
 						class="absolute left-[-6%] top-[-6%] h-auto w-[132%] max-w-none"
 					/>
@@ -155,7 +174,7 @@
 				<div class="flex justify-center gap-3 md:gap-6">
 					{#each [{ v: countdown.days, l: 'Giorni' }, { v: countdown.hours, l: 'Ore' }, { v: countdown.minutes, l: 'Min' }, { v: countdown.seconds, l: 'Sec' }] as unit}
 						<div class="min-w-[72px] rounded-2xl bg-cream-light p-4 shadow-md md:min-w-[96px] md:p-6">
-							<div class="font-serif text-3xl font-semibold text-gold md:text-4xl">{unit.v}</div>
+							<div class="font-serif text-3xl font-semibold text-gold md:text-4xl">{ready ? unit.v : '–'}</div>
 							<div class="mt-1 font-serif text-xs uppercase tracking-[0.25em] text-sage-dark">
 								{unit.l}
 							</div>

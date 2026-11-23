@@ -40,13 +40,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@efebia-com/fetcher@npm:^0.2.8":
-  version: 0.2.10
-  resolution: "@efebia-com/fetcher@npm:0.2.10::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40efebia-com%2Ffetcher%2F0.2.10%2F0a2cc54adeecd40dd89169fce784859c172c2bc2"
-  checksum: 094e649dd8c8025f95aa1ed302761ca98ad8735daafc6b4ae1e1056fc7df29a28b128def68bca4b69a1bbe78cf7038b91b45d6046fe2a73b4e0a1454705721b4
-  languageName: node
-  linkType: hard
-
 "@esbuild/aix-ppc64@npm:0.24.0":
   version: 0.24.0
   resolution: "@esbuild/aix-ppc64@npm:0.24.0"
@@ -463,9 +456,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@project/fe@workspace:packages/fe"
   dependencies:
-    "@efebia-com/fetcher": ^0.2.8
     "@project/ui": "workspace:^"
-    "@sveltejs/adapter-auto": ^3.3.1
+    "@sveltejs/adapter-static": ^3.0.8
     "@sveltejs/kit": ^2.12.2
     "@sveltejs/vite-plugin-svelte": ^5.0.3
     autoprefixer: ^10.4.20
@@ -679,14 +671,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-auto@npm:^3.3.1":
-  version: 3.3.1
-  resolution: "@sveltejs/adapter-auto@npm:3.3.1"
-  dependencies:
-    import-meta-resolve: ^4.1.0
+"@sveltejs/adapter-static@npm:^3.0.8":
+  version: 3.0.11
+  resolution: "@sveltejs/adapter-static@npm:3.0.11"
   peerDependencies:
     "@sveltejs/kit": ^2.0.0
-  checksum: 773d9a3106d7058a0e4c0ff356b1f073f5753276ab8c9bfe563e0b3ddef1927c4388bd1dc82a1cd6b178ca71f0b6a4703b0978770d4361d1bf20dac9d5fb4737
+  checksum: 4f3c9efa508e50e1419e90518d36a863521118a8e9a21530792156b96c7bd25b3942c22a388b9160ad2f801b4e9468dfdb620c6655edf3947b15e254e3ebee6b
   languageName: node
   linkType: hard
 
