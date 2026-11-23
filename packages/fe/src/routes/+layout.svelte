@@ -60,7 +60,7 @@
 		<div class="flex items-center {showMenu ? 'justify-between' : 'justify-center'} h-16">
 			<!-- Logo / Monogram -->
 			<a href="{base}/" class="font-display text-3xl text-gold hover:text-gold-dark transition-colors">
-				L & E
+				E & L
 			</a>
 
 			{#if showMenu}
@@ -134,7 +134,7 @@
 <!-- Footer -->
 <footer class="bg-charcoal text-white py-12">
 	<div class="container mx-auto px-4 text-center">
-		<p class="font-display text-5xl text-gold-light mb-4">L & E</p>
+		<p class="font-display text-5xl text-gold-light mb-4">E & L</p>
 		<p class="font-sans text-sm text-sand mb-2">22 Maggio 2027 • Sorrento</p>
 		<p class="font-script text-2xl text-cream mt-4">Avogado Travel</p>
 	</div>

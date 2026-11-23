@@ -137,7 +137,7 @@
 </script>
 
 <svelte:head>
-	<title>La Nostra Storia - Luca & Eugenia</title>
+	<title>La Nostra Storia - Eugenia & Luca</title>
 </svelte:head>
 
 <div class="min-h-screen bg-cream">

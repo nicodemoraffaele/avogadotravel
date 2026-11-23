@@ -111,7 +111,7 @@
 {/snippet}
 
 <svelte:head>
-	<title>Luca & Eugenia - Avogado Travel</title>
+	<title>Eugenia & Luca - Avogado Travel</title>
 </svelte:head>
 
 <div class="bg-sand">
@@ -121,7 +121,7 @@
 			<p
 				class="animate-fade-in font-serif text-4xl uppercase tracking-[0.18em] text-cream-light drop-shadow-sm md:text-6xl"
 			>
-				Luca & Eugenia
+				Eugenia & Luca
 			</p>
 			<p class="mt-1 font-script text-4xl text-charcoal/80 md:text-5xl">Avogado Travel</p>
 			<div
@@ -154,9 +154,9 @@
 			</p>
 
 			<div class="mt-6 text-center">
-				<p class="font-serif text-4xl uppercase tracking-[0.2em] text-charcoal">Luca</p>
-				<p class="my-1 font-script text-4xl text-gold">e</p>
 				<p class="font-serif text-4xl uppercase tracking-[0.2em] text-charcoal">Eugenia</p>
+				<p class="my-1 font-script text-4xl text-gold">e</p>
+				<p class="font-serif text-4xl uppercase tracking-[0.2em] text-charcoal">Luca</p>
 			</div>
 
 			<div class="mt-8 space-y-1 text-center font-serif uppercase tracking-[0.3em] text-sage-dark">

@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>RSVP - Luca & Eugenia</title>
+	<title>RSVP - Eugenia & Luca</title>
 </svelte:head>
 
 <div class="min-h-screen bg-cream">
