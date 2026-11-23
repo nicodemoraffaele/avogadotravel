@@ -1,6 +1,6 @@
 <script lang="ts">
 	const weddingDate = '2027-05-22T16:00:00';
-	const rsvpDeadline = '2026-03-01';
+	const rsvpDeadline = ''; // TODO: scadenza RSVP da definire
 </script>
 
 <div class="min-h-screen bg-cream">
@@ -52,7 +52,7 @@
 			<!-- RSVP Info -->
 			<section class="bg-gold-light rounded-lg shadow-sm p-8 text-center">
 				<h2 class="font-serif text-3xl text-charcoal mb-4">Conferma la tua presenza</h2>
-				<p class="text-gray-700 mb-6">Ti chiediamo di confermare entro il <strong>1 Marzo 2026</strong></p>
+				<p class="text-gray-700 mb-6">Ti chiediamo di confermare entro il <strong>[data da definire]</strong></p>
 				<a
 					href="/rsvp"
 					class="inline-block bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors"

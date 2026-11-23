@@ -15,7 +15,7 @@
 				Ci farebbe davvero piacere averti con noi!
 			</p>
 			<p class="text-sm text-gray-500">
-				Ti chiediamo di confermare la tua presenza entro il <strong>1 Marzo 2026</strong>
+				Ti chiediamo di confermare la tua presenza entro il <strong>[data da definire]</strong>
 			</p>
 		</header>
 

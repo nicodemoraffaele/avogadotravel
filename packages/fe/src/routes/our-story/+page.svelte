@@ -17,28 +17,28 @@
 	const milestones: TimelineMilestone[] = [
 		{
 			id: 1,
-			date: 'Settembre 2006',
+			date: '[data da definire]',
 			title: 'Il Primo Incontro',
 			description: 'Ci siamo conosciuti per la prima volta... [inserire la vostra storia]',
 			side: 'left'
 		},
 		{
 			id: 2,
-			date: 'Estate 2010',
+			date: '[data da definire]',
 			title: 'La Prima Vacanza Insieme',
 			description: 'Il nostro primo viaggio insieme... [inserire i dettagli]',
 			side: 'right'
 		},
 		{
 			id: 3,
-			date: 'Dicembre 2015',
+			date: '[data da definire]',
 			title: 'Un Momento Speciale',
 			description: 'Un ricordo importante del nostro percorso... [inserire dettagli]',
 			side: 'left'
 		},
 		{
 			id: 4,
-			date: 'Primavera 2024',
+			date: '[data da definire]',
 			title: 'La Proposta',
 			description: 'Il giorno in cui ho chiesto a Eugenia di sposarmi... [inserire la storia]',
 			side: 'right'
