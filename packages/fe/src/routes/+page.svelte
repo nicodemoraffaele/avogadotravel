@@ -119,13 +119,13 @@
 	<section class="relative overflow-hidden px-4 pb-20 pt-12 md:pt-16">
 		<div class="mx-auto max-w-5xl text-center">
 			<p
-				class="animate-fade-in font-serif text-4xl uppercase tracking-[0.18em] text-cream-light drop-shadow-sm md:text-6xl"
+				class="animate-fade-in font-serif text-[1.65rem] uppercase pl-[0.18em] tracking-[0.18em] text-cream-light drop-shadow-sm sm:text-4xl md:text-6xl"
 			>
 				Eugenia & Luca
 			</p>
 			<p class="mt-1 font-script text-4xl text-charcoal/80 md:text-5xl">Avogado Travel</p>
 			<div
-				class="mx-auto mt-6 inline-block rounded-full bg-taupe px-10 py-3 font-serif text-2xl tracking-[0.12em] text-cream-light shadow-md md:text-3xl"
+				class="mx-auto mt-6 inline-block rounded-full bg-taupe pl-[calc(2.5rem+0.12em)] pr-10 py-3 font-serif text-2xl tracking-[0.12em] text-cream-light shadow-md md:text-3xl"
 			>
 				22 · 05 · 2027
 			</div>
@@ -154,12 +154,12 @@
 			</p>
 
 			<div class="mt-6 text-center">
-				<p class="font-serif text-4xl uppercase tracking-[0.2em] text-charcoal">Eugenia</p>
+				<p class="font-serif text-4xl uppercase pl-[0.2em] tracking-[0.2em] text-charcoal">Eugenia</p>
 				<p class="my-1 font-script text-4xl text-gold">e</p>
-				<p class="font-serif text-4xl uppercase tracking-[0.2em] text-charcoal">Luca</p>
+				<p class="font-serif text-4xl uppercase pl-[0.2em] tracking-[0.2em] text-charcoal">Luca</p>
 			</div>
 
-			<div class="mt-8 space-y-1 text-center font-serif uppercase tracking-[0.3em] text-sage-dark">
+			<div class="mt-8 space-y-1 text-center font-serif uppercase tracking-[0.3em] [&>p]:pl-[0.3rem] text-sage-dark">
 				<p class="text-sm">Sabato</p>
 				<p class="text-2xl text-charcoal">22 Maggio 2027</p>
 				<p class="text-sm">ore 16:00</p>
@@ -171,11 +171,15 @@
 		{#if countdown.isFuture}
 			<div class="mx-auto mt-14 max-w-2xl text-center">
 				<p class="mb-6 font-script text-4xl text-charcoal/80">Mancano solo...</p>
-				<div class="flex justify-center gap-3 md:gap-6">
+				<!-- 4 colonne uguali: "Giorni", più lunga, non allarga la sua card -->
+				<div class="mx-auto grid max-w-md grid-cols-4 gap-3 md:gap-6">
 					{#each [{ v: countdown.days, l: 'Giorni' }, { v: countdown.hours, l: 'Ore' }, { v: countdown.minutes, l: 'Min' }, { v: countdown.seconds, l: 'Sec' }] as unit}
-						<div class="min-w-[72px] rounded-2xl bg-cream-light p-4 shadow-md md:min-w-[96px] md:p-6">
+						<div class="rounded-2xl bg-cream-light px-1 py-4 shadow-md md:py-6">
 							<div class="font-serif text-3xl font-semibold text-gold md:text-4xl">{ready ? unit.v : '–'}</div>
-							<div class="mt-1 font-serif text-xs uppercase tracking-[0.25em] text-sage-dark">
+							<!-- il padding sinistro pari alla spaziatura compensa quella dopo l'ultima lettera -->
+							<div
+								class="mt-1 pl-[0.15em] font-serif text-xs uppercase tracking-[0.15em] text-sage-dark md:pl-[0.25em] md:tracking-[0.25em]"
+							>
 								{unit.l}
 							</div>
 						</div>
@@ -188,7 +192,7 @@
 	<!-- Program -->
 	<section class="px-4 pb-24">
 		<div class="mx-auto max-w-xl rounded-[2.5rem] bg-cream-light px-4 py-12 shadow-xl sm:px-6 md:px-12">
-			<p class="text-center font-serif text-xl uppercase tracking-[0.35em] text-sage">Il</p>
+			<p class="text-center font-serif text-xl uppercase pl-[0.35em] tracking-[0.35em] text-sage">Il</p>
 			<h2 class="-mt-1 text-center font-script text-5xl leading-tight text-charcoal/80 sm:-mt-2 sm:text-7xl">Programma</h2>
 
 			<ol class="relative mx-auto mt-10 max-w-sm">
@@ -220,15 +224,15 @@
 	<section class="bg-cream-light py-section">
 		<div class="container mx-auto px-4 text-center">
 			<p class="font-script text-4xl text-gold">dove</p>
-			<h2 class="font-serif text-4xl uppercase tracking-[0.15em] text-charcoal">Sorrento</h2>
+			<h2 class="font-serif text-4xl uppercase pl-[0.15em] tracking-[0.15em] text-charcoal">Sorrento</h2>
 			<div class="mx-auto mt-10 grid max-w-3xl gap-6 text-left md:grid-cols-2">
 				<div class="rounded-3xl bg-cream p-6 text-center shadow-sm">
-					<p class="font-serif text-sm uppercase tracking-[0.3em] text-sage">Cerimonia</p>
+					<p class="font-serif text-sm uppercase pl-[0.3em] tracking-[0.3em] text-sage">Cerimonia</p>
 					<p class="mt-2 font-serif text-2xl text-charcoal">Chiesa da definire</p>
 					<p class="font-serif text-base italic text-sage-dark">Sorrento (NA) · ore 16:00</p>
 				</div>
 				<div class="rounded-3xl bg-cream p-6 text-center shadow-sm">
-					<p class="font-serif text-sm uppercase tracking-[0.3em] text-sage">Ricevimento</p>
+					<p class="font-serif text-sm uppercase pl-[0.3em] tracking-[0.3em] text-sage">Ricevimento</p>
 					<p class="mt-2 font-serif text-2xl text-charcoal">Location da definire</p>
 					<p class="font-serif text-base italic text-sage-dark">Sorrento (NA)</p>
 				</div>
