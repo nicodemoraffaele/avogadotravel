@@ -14,8 +14,9 @@ const config = {
 	],
 
 	kit: {
-		// Sito statico per GitHub Pages. BASE_PATH = '/avogadotravel' quando il sito è
-		// servito da nicodemoraffaele.github.io/avogadotravel; vuoto in locale o con dominio proprio.
+		// Sito statico per GitHub Pages, servito alla radice di avogadotravel.it.
+		// BASE_PATH serve solo se un giorno il sito tornasse sotto un sottopercorso
+		// (es. '/avogadotravel' su nicodemoraffaele.github.io).
 		adapter: adapter({ fallback: '404.html' }),
 		paths: {
 			base: process.env.BASE_PATH ?? '',

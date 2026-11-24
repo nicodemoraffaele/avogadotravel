@@ -29,8 +29,6 @@ jobs:
 
       - name: Build
         working-directory: packages/fe
-        env:
-          BASE_PATH: /avogadotravel
         run: node node_modules/vite/bin/vite.js build
 
       - uses: actions/upload-pages-artifact@v3
